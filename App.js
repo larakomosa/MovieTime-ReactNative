@@ -14,9 +14,10 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Details" component={DetailsScreen} />
+      <Stack.Navigator initialRouteName="App_To_Home">
+        <Stack.Screen name="App_To_Home" component={HomeScreen} />
+        <Stack.Screen name="Home_To_Details" component={DetailsScreen} />
+        <Stack.Screen name="Details_To_Details" component={DetailsScreen} />
         <Stack.Screen name="BigImageView" component={ImageScreen} />
       </Stack.Navigator>
     </NavigationContainer>
