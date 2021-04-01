@@ -3,11 +3,16 @@ import {Button, View, Text, StyleSheet} from 'react-native';
 
 const DetailsScreen = ({navigation, route}) => {
   console.log(route);
-  const {screenNumber} = route.params;
+  console.log(route.params.movie);
+  const movie = route.params.movie;
+
+
   return (
     <View style={styles.mainView}>
-      <Text>Details Screen</Text>
-      <Text style={{fontSize: 100}}>{screenNumber}</Text>
+      <Text style={{fontSize: 20}}>
+        {movie.title} ({movie.release})
+      </Text>
+      <Text style={{fontSize: 100}}>{movie.screenNumber}</Text>
       <Button
         title="Go to Image"
         onPress={() => {
@@ -17,15 +22,13 @@ const DetailsScreen = ({navigation, route}) => {
       <Button
         title="More Details"
         onPress={() => {
-          navigation.push(
-            'Details_To_Details',
-            // eslint-disable-next-line prettier/prettier
-            {screenNumber: (screenNumber + 1)}
-          );
+          movie.screenNumber = movie.screenNumber + 1;
+          console.log(movie);
+          navigation.push('Details_to_Details', {movie: movie});
         }}
       />
       <Button
-        title="Go Back"
+        title="Go Back to Home"
         onPress={() => {
           navigation.popToTop();
         }}

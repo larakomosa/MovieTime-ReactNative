@@ -8,7 +8,7 @@ const ImageScreen = ({navigation}) => {
       <Button
         title="Go Home"
         onPress={() => {
-          navigation.navigate('App_To_Home');
+          navigation.navigate('App_to_Home');
         }}
       />
     </View>
